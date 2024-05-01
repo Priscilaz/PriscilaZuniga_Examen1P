@@ -1,0 +1,54 @@
+﻿@model PriscilaZuniga_Examen1P.Models.PZClass
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PZClass</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PZ_Peso" class="control-label"></label>
+                <input asp-for="PZ_Peso" class="form-control" />
+                <span asp-validation-for="PZ_Peso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PZ_Apodo" class="control-label"></label>
+                <input asp-for="PZ_Apodo" class="form-control" />
+                <span asp-validation-for="PZ_Apodo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PZ_Activo" /> @Html.DisplayNameFor(model => model.PZ_Activo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PZ_FechaNacimiento" class="control-label"></label>
+                <input asp-for="PZ_FechaNacimiento" class="form-control" />
+                <span asp-validation-for="PZ_FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
