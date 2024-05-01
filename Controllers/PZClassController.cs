@@ -17,11 +17,17 @@ namespace PriscilaZuniga_Examen1P.Controllers
         {
             _context = context;
         }
-
+        
         // GET: PZClass
-        public async Task<IActionResult> Index()
+        //Cambios Para el metodo de busqueda
+        public async Task<IActionResult> Index(string buscar)
         {
-            return View(await _context.PZClass.ToListAsync());
+            var classPZ= from PZClass in _context.PZClass select PZClass;
+            if (!String.IsNullOrEmpty(buscar))
+            {
+                classPZ = classPZ.Where(s => s.PZ_Apodo!.Contains(buscar));
+            }
+            return View(await classPZ.ToListAsync());
         }
 
         // GET: PZClass/Details/5
