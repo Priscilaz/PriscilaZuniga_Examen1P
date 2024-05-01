@@ -15,7 +15,7 @@ namespace PriscilaZuniga_Examen1P.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("PZ_Index");
         }
 
         public IActionResult Privacy()
